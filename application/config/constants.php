@@ -84,5 +84,7 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-defined('TABLE_CUSTOMER')        OR define('TABLE_CUSTOMER', 'customer');
+defined('TABLE_CUSTOMER')                OR define('TABLE_CUSTOMER', 'customer');
 defined('TABLE_CUSTOMER_ADDRESS')        OR define('TABLE_CUSTOMER_ADDRESS', 'customer_address');
+defined('TABLE_OFFERS')                  OR define('TABLE_OFFERS', 'offers');
+defined('STATUS_ACTIVE')                 OR define('STATUS_ACTIVE', 1);
