@@ -5,17 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <link rel="stylesheet" href="assets/css/slicknav.css">
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/slick.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/flaticon.css">
+        <link rel="stylesheet" href="/assets/css/slicknav.css">
+        <link rel="stylesheet" href="/assets/css/animate.min.css">
+        <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/assets/css/themify-icons.css">
+        <link rel="stylesheet" href="/assets/css/slick.css">
+        <link rel="stylesheet" href="/assets/css/nice-select.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
         <div id="preloader-active">
@@ -45,10 +45,10 @@
                                               <li><a href="/shop">Shop</a></li>
                                               <li class="hot"><a href="/offers">Offers</a></li>
                                               <li><a href="/cart">Shopping Cart</a></li>
-                                              <?php if (true): ?>
+                                              <?php if (sessionExists()): ?>
+                                                  <li class="d-block d-lg-none"><a href="/login/logout">Log Out</a></li>
+                                              <?php else: ?>
                                                   <li class="d-block d-lg-none"><a href="/login">Sign in</a></li>
-                                              <?php elseif (false): ?>
-                                                  <li class="d-block d-lg-none"><a href="/login">Log Out</a></li>
                                               <?php endif; ?>
                                           </ul>
                                       </nav>
@@ -56,16 +56,22 @@
                               </div>
                               <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                                   <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                                      <li class="d-none d-lg-block welcome-text">Welcome, Guest</li>
+                                      <li class="d-none d-lg-block welcome-text">
+                                        Welcome, <?php if (sessionExists()) {
+                                          echo $this->session->userdata('customer_first_name');
+                                        } else {
+                                          echo 'Guest';
+                                        } ?>
+                                      </li>
                                       <li>
                                           <div class="shopping-card" data-products="5">
                                               <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
                                           </div>
                                       </li>
-                                      <?php if (true): ?>
+                                      <?php if (sessionExists()): ?>
+                                          <li class="d-none d-lg-block"><a href="/login/logout" class="btn header-btn">Log Out</a></li>
+                                      <?php else: ?>
                                           <li class="d-none d-lg-block"><a href="/login" class="btn header-btn">Sign in</a></li>
-                                      <?php elseif (false): ?>
-                                          <li class="d-none d-lg-block"><a href="/login" class="btn header-btn">Log Out</a></li>
                                       <?php endif; ?>
                                   </ul>
                               </div>

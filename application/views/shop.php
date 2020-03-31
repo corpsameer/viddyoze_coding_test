@@ -1,11 +1,11 @@
 <div class="slider-area ">
     <div class="slider-active">
-        <div class="single-slider slider-height" data-background="assets/images/slider_background.jpg">
+        <div class="single-slider slider-height" data-background="assets/images/pages/shop/banner_background.jpg">
             <div class="container">
                 <div class="row d-flex align-items-center justify-content-between">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
                         <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                            <img src="assets/images/slider_shock.png" alt="">
+                            <img src="assets/images/pages/shop/banner_front.png" alt="">
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
