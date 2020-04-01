@@ -61,7 +61,7 @@
                     <h4><?= $product['name']; ?></h4>
                     <div class="price">
                       <ul>
-                        <li><?= $product['price']; ?></li>
+                        <li>$<?= $product['price']; ?></li>
                       </ul>
                     </div>
                     <br>

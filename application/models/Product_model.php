@@ -15,4 +15,14 @@ class Product_model extends CI_Model {
 
     return $result;
   }
+
+  public function getProductDetails($productCode) {
+    $this->db->select('*');
+    $this->db->from(TABLE_PRODUCT);
+    $this->db->where('code', $productCode);
+
+    $result = $this->db->get()->row_array();
+
+    return $result;
+  }
 }

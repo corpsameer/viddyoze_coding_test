@@ -26,10 +26,10 @@ class Shop extends CI_Controller {
 
       for ($inc = 0; $inc < count($activeProducts); $inc++) {
         $activeProducts[$inc]['activeOffer'] = false;
-        $activeOfferId = $this->offertoproduct_model->getActiveOfferForProduct($activeProducts[$inc]['code']);
+        $activeOfferCode = $this->offertoproduct_model->getActiveOfferForProduct($activeProducts[$inc]['code']);
 
-        if ($activeOfferId) {
-          $offerDetails = $this->offer_model->getActiveOfferCodeAndLabel($activeOfferId);
+        if ($activeOfferCode) {
+          $offerDetails = $this->offer_model->getActiveOfferCodeAndLabel($activeOfferCode);
           $activeProducts[$inc]['activeOffer'] = $offerDetails;
         }
       }

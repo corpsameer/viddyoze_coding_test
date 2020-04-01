@@ -2,8 +2,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="confirmation_tittle">
-            <span>Thank you. Your order has been received.</span>
+          <div class="alert alert-success text-center">
+            <strong>Success! </strong>Thank you. Your order has been received.
+            <br>Below are your order details.
           </div>
         </div>
         <div class="col-lg-6 col-lx-4">
@@ -11,16 +12,16 @@
             <h4>order info</h4>
             <ul>
               <li>
-                <p>order number</p><span>: 60235</span>
+                <p>order number</p><span>: <?= $orderDetails['id']; ?></span>
               </li>
               <li>
-                <p>data</p><span>: Oct 03, 2017</span>
+                <p>date</p><span>: <?= $orderDetails['order_date']; ?></span>
               </li>
               <li>
-                <p>total</p><span>: $ 2210</span>
+                <p>total</p><span>: $<?= $orderDetails['total_price']; ?></span>
               </li>
               <li>
-                <p>payment method</p><span>: Check payments</span>
+                <p>payment method</p><span>: <?= DEFAULT_PAYMENT_METHOD; ?></span>
               </li>
             </ul>
           </div>
@@ -30,21 +31,20 @@
             <h4>Billing Address</h4>
             <ul>
               <li>
-                <p>Street</p><span>: 56/8</span>
+                <p>Street</p><span>: <?= $billingAddress['house_no']; ?></span>
               </li>
               <li>
-                <p>city</p><span>: Los Angeles</span>
+                <p>city</p><span>: <?= $billingAddress['city']; ?></span>
               </li>
               <li>
-                <p>country</p><span>: United States</span>
+                <p>country</p><span>: <?= $billingAddress['country']; ?></span>
               </li>
               <li>
-                <p>postcode</p><span>: 36952</span>
+                <p>postcode</p><span>: <?= $billingAddress['postcode']; ?></span>
               </li>
             </ul>
           </div>
         </div>
-
       </div>
       <div class="row">
         <div class="col-lg-12">
@@ -55,32 +55,32 @@
                 <tr>
                   <th scope="col" colspan="2">Product</th>
                   <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Offer</th>
                   <th scope="col">Total</th>
                 </tr>
               </thead>
               <tbody>
+                <?php foreach ($orderProducts as $product): ?>
+                  <tr>
+                    <th colspan="2"><span><?= $product['name']; ?></span></th>
+                    <th><?= $product['quantity']; ?></th>
+                    <th>$<?= $product['price']; ?></th>
+                    <th><?= $product['offer_applied']; ?></th>
+                    <th>$<?= $product['total_price']; ?></th>
+                  </tr>
+                <?php endforeach; ?>
                 <tr>
-                  <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                  <th>x02</th>
-                  <th> <span>$720.00</span></th>
+                  <th colspan="5">Subtotal</th>
+                  <th> <span>$<?= $orderDetails['sub_total']; ?></span></th>
                 </tr>
                 <tr>
-                  <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                  <th>x02</th>
-                  <th> <span>$720.00</span></th>
+                  <th colspan="5">delivery charges</th>
+                  <th> <span>$<?= $orderDetails['delivery_charge']; ?></span></th>
                 </tr>
                 <tr>
-                  <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                  <th>x02</th>
-                  <th> <span>$720.00</span></th>
-                </tr>
-                <tr>
-                  <th colspan="3">Subtotal</th>
-                  <th> <span>$2160.00</span></th>
-                </tr>
-                <tr>
-                  <th colspan="3">delivery charges</th>
-                  <th><span>flat rate: $50.00</span></th>
+                  <th colspan="5">total</th>
+                  <th> <span>$<?= $orderDetails['total_price']; ?></span></th>
                 </tr>
               </tbody>
             </table>

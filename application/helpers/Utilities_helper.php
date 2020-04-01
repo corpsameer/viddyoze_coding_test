@@ -1,6 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+  * Function to set customer session data.
+  *
+  * After a customer is logged in successfully, this function sets
+  * required session variables customer and customer address data.
+  *
+  * @param array $customerData Customer data.
+  * @param array $addressData Customer address data.
+  *
+  * @return void
+  */
 if (!function_exists('setCustomerSession')) {
   function setCustomerSession($customerData, $addressData) {
     $CI = get_instance();
@@ -20,6 +31,13 @@ if (!function_exists('setCustomerSession')) {
   }
 }
 
+/**
+  * Function to check if customer session exists.
+  *
+  * This function checks if a customer session is set or not.
+  *
+  * @return bool
+  */
 if (!function_exists('sessionExists')) {
   function sessionExists() {
     $CI = get_instance();

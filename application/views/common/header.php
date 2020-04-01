@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/assets/css/themify-icons.css">
         <link rel="stylesheet" href="/assets/css/slick.css">
         <link rel="stylesheet" href="/assets/css/nice-select.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/style.css">        
     </head>
     <body>
         <div id="preloader-active">
@@ -64,7 +64,7 @@
                                         } ?>
                                       </li>
                                       <li>
-                                          <div class="shopping-card" data-products="5">
+                                          <div class="shopping-card" data-products="0" id="header_cart_icon">
                                               <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
                                           </div>
                                       </li>

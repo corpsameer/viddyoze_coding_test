@@ -25,8 +25,8 @@ class Login extends CI_Controller {
 
       if (isset($address['id'])) {
         setCustomerSession($customer, $address);
-        sessionExists();
-        redirect('/shop');
+
+        redirect('shop');
       } else {
         $this->session->set_flashdata(
           'response',
@@ -37,7 +37,7 @@ class Login extends CI_Controller {
           ]
         );
 
-        redirect('/login');
+        redirect('login');
       }
     } else {
       $this->session->set_flashdata(
@@ -49,7 +49,7 @@ class Login extends CI_Controller {
         ]
       );
 
-      redirect('/login');
+      redirect('login');
     }
   }
 
@@ -58,6 +58,6 @@ class Login extends CI_Controller {
       $this->session->sess_destroy();
     }
 
-    redirect('/login');
+    redirect('login');
   }
 }

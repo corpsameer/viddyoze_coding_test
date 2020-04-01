@@ -84,9 +84,16 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
+defined('TABLE_CART')                    OR define('TABLE_CART', 'cart');
 defined('TABLE_CUSTOMER')                OR define('TABLE_CUSTOMER', 'customer');
 defined('TABLE_CUSTOMER_ADDRESS')        OR define('TABLE_CUSTOMER_ADDRESS', 'customer_address');
+defined('TABLE_CUSTOMER_TO_ORDER')       OR define('TABLE_CUSTOMER_TO_ORDER', 'customer_to_order');
+defined('TABLE_DELIVERY_CHARGE_RULE')    OR define('TABLE_DELIVERY_CHARGE_RULE', 'delivery_charge_rule');
 defined('TABLE_OFFER')                   OR define('TABLE_OFFER', 'offer');
 defined('TABLE_OFFER_TO_PRODUCT')        OR define('TABLE_OFFER_TO_PRODUCT', 'offer_to_product');
 defined('TABLE_PRODUCT')                 OR define('TABLE_PRODUCT', 'product');
+defined('TABLE_PRODUCT_TO_ORDER')        OR define('TABLE_PRODUCT_TO_ORDER', 'product_to_order');
+
+defined('DEFAULT_DELIVER_CHARGE')        OR define('DEFAULT_DELIVER_CHARGE', 4.95);
+defined('DEFAULT_PAYMENT_METHOD')        OR define('DEFAULT_PAYMENT_METHOD', 'CASH ON DELIVERY');
 defined('STATUS_ACTIVE')                 OR define('STATUS_ACTIVE', 1);

@@ -28,7 +28,7 @@ class Signup extends CI_Controller {
         ]
       );
 
-      redirect('/signup');
+      redirect('signup');
     } else {
       $customerData = [
         'first_name' => $postVars['first_name'],
@@ -60,7 +60,7 @@ class Signup extends CI_Controller {
               ]
             );
 
-            redirect('/login');
+            redirect('login');
           } else {
             $this->customer_model->deleteCustomer($customer['id']);
             $this->session->set_flashdata(
@@ -72,7 +72,7 @@ class Signup extends CI_Controller {
               ]
             );
 
-            redirect('/signup');
+            redirect('signup');
           }
       } else {
         $this->session->set_flashdata(
@@ -84,7 +84,7 @@ class Signup extends CI_Controller {
           ]
         );
 
-        redirect('/signup');
+        redirect('signup');
       }
     }
   }
