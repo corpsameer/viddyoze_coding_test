@@ -86,5 +86,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 defined('TABLE_CUSTOMER')                OR define('TABLE_CUSTOMER', 'customer');
 defined('TABLE_CUSTOMER_ADDRESS')        OR define('TABLE_CUSTOMER_ADDRESS', 'customer_address');
-defined('TABLE_OFFERS')                  OR define('TABLE_OFFERS', 'offers');
+defined('TABLE_OFFER')                   OR define('TABLE_OFFER', 'offer');
+defined('TABLE_OFFER_TO_PRODUCT')        OR define('TABLE_OFFER_TO_PRODUCT', 'offer_to_product');
+defined('TABLE_PRODUCT')                 OR define('TABLE_PRODUCT', 'product');
 defined('STATUS_ACTIVE')                 OR define('STATUS_ACTIVE', 1);

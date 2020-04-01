@@ -8,21 +8,21 @@ class Offers extends CI_Controller {
   }
 
   public function index() {
-    $this->load->model('offers_model');
-    $activeOffers = $this->offers_model->getActiveOffers();
-    $this->data['activeOffers'] = $activeOffers;
+    $this->load->model('offer_model');
+    $activeOffers = $this->offer_model->getActiveOffers();
 
     if (empty($activeOffers)) {
       $this->session->set_flashdata(
         'response',
         [
-          'class' => 'danger',
+          'class' => 'info',
           'message' => 'Currently there are no active offers. Please visit again to see our latest offers.',
-          'status' => 'error'
+          'status' => 'info'
         ]
       );
     }
 
+    $this->data['activeOffers'] = $activeOffers;
     $this->load->view('common/header');
     $this->load->view('offers', $this->data);
     $this->load->view('common/footer');
