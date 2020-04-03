@@ -2,10 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Customertoorder_model extends CI_Model {
+  /**
+    * Constructor.
+    */
   function __construct() {
     parent::__construct();
   }
 
+  /**
+    * Function to insert new order details.
+    *
+    * @param array $data Order data.
+    *
+    * @return int
+    */
   public function newOrder($data) {
     $this->db->insert(TABLE_CUSTOMER_TO_ORDER, $data);
     $orderId = $this->db->insert_id();
@@ -13,6 +23,13 @@ class Customertoorder_model extends CI_Model {
     return $orderId;
   }
 
+  /**
+    * Function to get order details.
+    *
+    * @param int $orderId Order id.
+    *
+    * @return array
+    */
   public function getOrderDetails($orderId) {
     $this->db->select('*');
     $this->db->from(TABLE_CUSTOMER_TO_ORDER);

@@ -2,20 +2,35 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Signup extends CI_Controller {
+  /**
+    * Constructor
+    */
   function __construct() {
     parent::__construct();
     $this->data = [];
   }
 
+  /**
+    * Function to show create account page.
+    */
   public function index() {
     $this->load->view('common/header');
     $this->load->view('signup');
     $this->load->view('common/footer');
   }
 
+  /**
+    * Function to create customer's account.
+    *
+    * The function validates the data entered by customer and creates customer's account.
+    *
+    */
   public function createAccount() {
+    // Post data.
     $postVars = $this->input->post();
     $this->load->model('customer_model');
+
+    // Check if entered email is already registered.
     $alreadyRegistered = $this->customer_model->emailAlreadyRegistered($postVars['email']);
 
     if ($alreadyRegistered) {
@@ -36,6 +51,8 @@ class Signup extends CI_Controller {
         'email' => $postVars['email'],
         'password' => md5($postVars['password'])
       ];
+
+      // Create customer account.
       $customer = $this->customer_model->createAccount($customerData);
 
       if (isset($customer['id']) && $customer['id']) {

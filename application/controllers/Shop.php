@@ -2,15 +2,27 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Shop extends CI_Controller {
+  /**
+    * Constructor
+    */
   function __construct() {
     parent::__construct();
     $this->data = [];
   }
 
+  /**
+    * Function to display active products in application.
+    *
+    * The function gets the list of all active products in application and show them.
+    * For every active product, it checks if there are any active offer for the product.
+    *
+    */
   public function index() {
     $this->load->model('product_model');
-    $activeProducts = $this->product_model->getActiveProducts();
 
+    // Get list of all active products.
+    $activeProducts = $this->product_model->getActiveProducts();
+    
     if (empty($activeProducts)) {
       $this->session->set_flashdata(
         'response',
@@ -26,9 +38,12 @@ class Shop extends CI_Controller {
 
       for ($inc = 0; $inc < count($activeProducts); $inc++) {
         $activeProducts[$inc]['activeOffer'] = false;
+
+        // Check active offer for product.
         $activeOfferCode = $this->offertoproduct_model->getActiveOfferForProduct($activeProducts[$inc]['code']);
 
         if ($activeOfferCode) {
+          // If there is an active offer for product, get details of the offer.
           $offerDetails = $this->offer_model->getActiveOfferCodeAndLabel($activeOfferCode);
           $activeProducts[$inc]['activeOffer'] = $offerDetails;
         }

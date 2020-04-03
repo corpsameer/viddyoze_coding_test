@@ -2,10 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Offertoproduct_model extends CI_Model {
+  /**
+    * Constructor.
+    */
   function __construct() {
     parent::__construct();
   }
 
+  /**
+    * Function to get code of offer which is active for product.
+    *
+    * @param string $productCode Product code.
+    *
+    * @return mixed
+    */
   public function getActiveOfferForProduct($productCode) {
     $this->db->select('offer_code');
     $this->db->from(TABLE_OFFER_TO_PRODUCT);
@@ -23,6 +33,14 @@ class Offertoproduct_model extends CI_Model {
     return false;
   }
 
+  /**
+    * Function to check if offer is active for product.
+    *
+    * @param string $offerCode Offer code.
+    * @param string $productCode Product code.
+    *
+    * @return mixed
+    */
   public function checkActiveOfferForProduct($offerCode, $productCode) {
     $this->db->select('is_active');
     $this->db->from(TABLE_OFFER_TO_PRODUCT);

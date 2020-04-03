@@ -29,7 +29,8 @@ function incrementProductQuantity(element) {
 }
 
 /**
- * This function will update the count in cart icon bubble in header.
+ * This function will make an ajax call to cart controller productCountInCart method.
+ * According to response, it will update the count in cart icon bubble in header.
  *
  */
 function updateCartCount() {

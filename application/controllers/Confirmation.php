@@ -2,11 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Confirmation extends CI_Controller {
+  /**
+    * Constructor
+    */
   function __construct() {
     parent::__construct();
     $this->data = [];
   }
 
+  /**
+    * Function to show order details.
+    *
+    * The function shows details of order that is placed successfully.
+    * It will show pricing, cutomer billing address and list of products in order.
+    *
+    */
   public function index() {
     $orderId = $this->uri->segment(2);
 

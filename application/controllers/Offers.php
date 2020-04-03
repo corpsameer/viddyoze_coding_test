@@ -2,11 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Offers extends CI_Controller {
+  /**
+    * Constructor
+    */
   function __construct() {
     parent::__construct();
     $this->data = [];
   }
 
+  /**
+    * Function to display active offers in the application.
+    */
   public function index() {
     $this->load->model('offer_model');
     $activeOffers = $this->offer_model->getActiveOffers();
